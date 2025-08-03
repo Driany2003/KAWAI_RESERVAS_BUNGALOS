@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { X, ChevronLeft, ChevronRight, Image, Eye, Heart, Share2 } from 'lucide-react';
 import { galleryImages } from '../utils/galleryData';
 import { useAppContext } from '../context/AppContext';
@@ -6,7 +6,6 @@ import { Section } from '../layout';
 
 const Galeria = () => {
   const { selectedImage, setSelectedImage } = useAppContext();
-  const [hoveredImage, setHoveredImage] = useState(null);
 
   const openModal = (image) => {
     setSelectedImage(image);
@@ -52,8 +51,7 @@ const Galeria = () => {
             key={imagen.id}
             className="group relative overflow-hidden rounded-xl sm:rounded-2xl cursor-pointer transform hover:scale-105 transition-all duration-500 shadow-lg hover:shadow-2xl bg-white"
             onClick={() => openModal(imagen)}
-            onMouseEnter={() => setHoveredImage(imagen.id)}
-            onMouseLeave={() => setHoveredImage(null)}
+
           >
             {/* Imagen */}
             <div className="relative h-40 sm:h-64 overflow-hidden">

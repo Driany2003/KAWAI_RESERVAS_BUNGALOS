@@ -26,7 +26,7 @@ const Contacto = () => {
   };
 
   const validatePhone = (phone) => {
-    const phoneRegex = /^[\d\s\-\+\(\)]+$/;
+    const phoneRegex = /^[\d\s\-+()]+$/;
     return phoneRegex.test(phone) && phone.replace(/\D/g, '').length >= 7;
   };
 
@@ -79,7 +79,6 @@ const Contacto = () => {
 
     // Validaciones de fechas en tiempo real
     if (name === 'fechaLlegada' || name === 'fechaSalida') {
-      const newFormData = { ...formData, [name]: value };
       const fechaLlegada = name === 'fechaLlegada' ? value : formData.fechaLlegada;
       const fechaSalida = name === 'fechaSalida' ? value : formData.fechaSalida;
       
